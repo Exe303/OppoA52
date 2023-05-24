@@ -16,7 +16,6 @@ cd /root/
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
-/etc/init.d/stunnel4 restart
 /etc/init.d/openvpn restart
 /etc/init.d/fail2ban restart
 /etc/init.d/cron restart
