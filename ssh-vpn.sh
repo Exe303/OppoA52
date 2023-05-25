@@ -18,7 +18,7 @@ commonname=AcellTunnel
 email=admin@AcellTunnel
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Exe303/OppoA53/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Exe303/OppoA52/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -92,14 +92,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Exe303/OppoA53/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Exe303/OppoA52/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Exe303/OppoA53/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Exe303/OppoA52/main/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Exe303/OppoA53/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Exe303/OppoA52/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -119,7 +119,7 @@ sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
 sed -i 's/PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
 cd /etc/ssh
 rm sshd_config
-wget https://raw.githubusercontent.com/Exe303/OppoA53/main/sshd_config.zip && unzip sshd_config.zip
+wget https://raw.githubusercontent.com/Exe303/OppoA52/main/sshd_config.zip && unzip sshd_config.zip
 rm sshd_config.zip
 cd
 
@@ -150,12 +150,6 @@ systemctl enable vnstat
 rm -f /root/vnstat-2.6.tar.gz
 rm -rf /root/vnstat-2.6
 
-#install sslh
-#apt install sslh -y
-#cd /etc/default/
-#rm sslh
-#wget https://raw.githubusercontent.com/Exe303/OppoA53/main/sslh
-
 # install stunnel
 apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
@@ -165,13 +159,9 @@ socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
-[drobear]
-accept = 442
+[https]
+accept = 777
 connect = 127.0.0.1:222
-
-[openvpn]
-accept = 1196
-connect = 127.0.0.1:1194
 
 END
 
@@ -186,7 +176,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 #OpenVPN
-wget https://raw.githubusercontent.com/Exe303/OppoA53/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://raw.githubusercontent.com/Exe303/OppoA52/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -219,7 +209,7 @@ echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 # banner /etc/mdx.txt
-wget -O /etc/mdx.txt "https://raw.githubusercontent.com/Exe303/OppoA53/main/banner"
+wget -O /etc/mdx.txt "https://raw.githubusercontent.com/Exe303/OppoA52/main/banner"
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -240,52 +230,52 @@ netfilter-persistent reload
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/Exe303/OppoA53/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/Exe303/OppoA53/main/about.sh"
-wget -O menu "https://raw.githubusercontent.com/Exe303/OppoA53/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/Exe303/OppoA53/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/Exe303/OppoA53/main/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/Exe303/OppoA53/main/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/Exe303/OppoA53/main/member.sh"
-wget -O delete "https://raw.githubusercontent.com/Exe303/OppoA53/main/delete.sh"
-wget -O cek "https://raw.githubusercontent.com/Exe303/OppoA53/main/cek.sh"
-wget -O restart "https://raw.githubusercontent.com/Exe303/OppoA53/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/Exe303/OppoA53/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/Exe303/OppoA53/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/Exe303/OppoA53/main/ram.sh"
-wget -O renew "https://raw.githubusercontent.com/Exe303/OppoA53/main/renew.sh"
-wget -O autokill "https://raw.githubusercontent.com/Exe303/OppoA53/main/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/Exe303/OppoA53/main/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/Exe303/OppoA53/main/tendang.sh"
-wget -O clear-log "https://raw.githubusercontent.com/Exe303/OppoA53/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/Exe303/OppoA53/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/Exe303/OppoA53/main/port-vless.sh"
-wget -O wbmn "https://raw.githubusercontent.com/Exe303/OppoA53/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/Exe303/OppoA53/main/xp.sh"
-wget -O kernel-updt "https://raw.githubusercontent.com/Exe303/OppoA53/main/kernel-update.sh"
-wget -O tessh "https://raw.githubusercontent.com/Exe303/OppoA53/main/tessh.sh"
-wget -O ssstp "https://raw.githubusercontent.com/Exe303/OppoA53/main/ssstp.sh"
-wget -O sssr "https://raw.githubusercontent.com/Exe303/OppoA53/main/sssr.sh"
-wget -O ltp "https://raw.githubusercontent.com/Exe303/OppoA53/main/ltp.sh"
-wget -O wgg "https://raw.githubusercontent.com/Exe303/OppoA53/main/wgg.sh"
-wget -O trj "https://raw.githubusercontent.com/Exe303/OppoA53/main/trj.sh"
-wget -O wss "https://raw.githubusercontent.com/Exe303/OppoA53/main/wss.sh"
-wget -O vls "https://raw.githubusercontent.com/Exe303/OppoA53/main/vls.sh"
-wget -O updatee "https://raw.githubusercontent.com/Exe303/OppoA53/main/updatee.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/Exe303/OppoA53/main/auto-reboot.sh"
-wget -O tr-mnt "https://raw.githubusercontent.com/Exe303/OppoA53/main/tr-mnt.sh"
-wget -O bbr "https://raw.githubusercontent.com/Exe303/OppoA53/main/bbr.sh"
-wget -O running "https://raw.githubusercontent.com/Exe303/OppoA53/main/running.sh"
-wget -O cff "https://raw.githubusercontent.com/Exe303/OppoA53/main/cff.sh"
-wget -O cfh "https://raw.githubusercontent.com/Exe303/OppoA53/main/cfh.sh"
-wget -O cfd "https://raw.githubusercontent.com/Exe303/OppoA53/main/cfd.sh"
+wget -O add-host "https://raw.githubusercontent.com/Exe303/OppoA52/main/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/Exe303/OppoA52/main/about.sh"
+wget -O menu "https://raw.githubusercontent.com/Exe303/OppoA52/main/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/Exe303/OppoA52/main/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/Exe303/OppoA52/main/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/Exe303/OppoA52/main/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/Exe303/OppoA52/main/member.sh"
+wget -O delete "https://raw.githubusercontent.com/Exe303/OppoA52/main/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/Exe303/OppoA52/main/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/Exe303/OppoA52/main/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/Exe303/OppoA52/main/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/Exe303/OppoA52/main/info.sh"
+wget -O ram "https://raw.githubusercontent.com/Exe303/OppoA52/main/ram.sh"
+wget -O renew "https://raw.githubusercontent.com/Exe303/OppoA52/main/renew.sh"
+wget -O autokill "https://raw.githubusercontent.com/Exe303/OppoA52/main/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/Exe303/OppoA52/main/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/Exe303/OppoA52/main/tendang.sh"
+wget -O clear-log "https://raw.githubusercontent.com/Exe303/OppoA52/main/clear-log.sh"
+wget -O change-port "https://raw.githubusercontent.com/Exe303/OppoA52/main/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/Exe303/OppoA52/main/port-vless.sh"
+wget -O wbmn "https://raw.githubusercontent.com/Exe303/OppoA52/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/Exe303/OppoA52/main/xp.sh"
+wget -O kernel-updt "https://raw.githubusercontent.com/Exe303/OppoA52/main/kernel-update.sh"
+wget -O tessh "https://raw.githubusercontent.com/Exe303/OppoA52/main/tessh.sh"
+wget -O ssstp "https://raw.githubusercontent.com/Exe303/OppoA52/main/ssstp.sh"
+wget -O sssr "https://raw.githubusercontent.com/Exe303/OppoA52/main/sssr.sh"
+wget -O ltp "https://raw.githubusercontent.com/Exe303/OppoA52/main/ltp.sh"
+wget -O wgg "https://raw.githubusercontent.com/Exe303/OppoA52/main/wgg.sh"
+wget -O trj "https://raw.githubusercontent.com/Exe303/OppoA52/main/trj.sh"
+wget -O wss "https://raw.githubusercontent.com/Exe303/OppoA52/main/wss.sh"
+wget -O vls "https://raw.githubusercontent.com/Exe303/OppoA52/main/vls.sh"
+wget -O updatee "https://raw.githubusercontent.com/Exe303/OppoA52/main/updatee.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/Exe303/OppoA52/main/auto-reboot.sh"
+wget -O tr-mnt "https://raw.githubusercontent.com/Exe303/OppoA52/main/tr-mnt.sh"
+wget -O bbr "https://raw.githubusercontent.com/Exe303/OppoA52/main/bbr.sh"
+wget -O running "https://raw.githubusercontent.com/Exe303/OppoA52/main/running.sh"
+wget -O cff "https://raw.githubusercontent.com/Exe303/OppoA52/main/cff.sh"
+wget -O cfh "https://raw.githubusercontent.com/Exe303/OppoA52/main/cfh.sh"
+wget -O cfd "https://raw.githubusercontent.com/Exe303/OppoA52/main/cfd.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x usernew
@@ -370,6 +360,5 @@ cd
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/ssh-vpn.sh
-
 # finihsing
 clear
