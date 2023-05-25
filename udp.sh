@@ -1,5 +1,7 @@
 #!/bin/bash
-#Script By MDX
+#Script UdpCustom 2023
+#Script By MARDHEX
+#https://t.me/mdxdev
 cd
 rm -rf /root/udp
 mkdir -p /root/udp
@@ -18,6 +20,8 @@ echo ""
 wget -q --show-progress --load-cookies /tmp/cookies.txt "https://gitlab.com/Exe302/Tunnel/-/raw/main/udp-custom-linux-amd64" -O /root/udp/udp-custom && rm -rf /tmp/cookies.txt
 chmod +x /root/udp/udp-custom
 clear
+# install Config Default Udp
+echo ""
 sleep 4
 echo "    Proses Download Script Config Default........"
 sleep 4
@@ -31,9 +35,10 @@ echo ""
 wget -q --show-progress --load-cookies /tmp/cookies.txt "https://gitlab.com/Exe302/Tunnel/-/raw/main/config.json" -O /root/udp/config.json && rm -rf /tmp/cookies.txt
 chmod 644 /root/udp/config.json
 
-# banner /etc/mdx.txt
-wget -O /etc/mdx.txt "https://raw.githubusercontent.com/Exe303/OppoA52/main/banner"
-sed -i 's/DROPBEAR_BANNER="/etc/mdx.txt/g' /etc/mdx.txt
+# banner /root/udp/mdx.txt
+wget -O /root/udp/mdx.txt "https://raw.githubusercontent.com/Exe303/OppoA52/main/banner"
+chmod +x /root/udp/mdx.txt
+sed -i 's/DROPBEAR_BANNER="/root/udp/mdx.txt/g' /root/udp/mdx.txt
 
 if [ -z "$1" ]; then
 cat <<EOF > /etc/systemd/system/udp-custom.service
