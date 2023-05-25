@@ -4,12 +4,29 @@ cd
 rm -rf /root/udp
 mkdir -p /root/udp
 # install udp-custom
-echo "Proses Download Script UdpCustom"
+echo ""
+sleep 4
+echo "    Proses Download Script UdpCustom........"
+sleep 4
+echo "    Cecking Tool UdpCustom By Mardhex......."
+sleep 4
+echo "    Succes Cecking Tool..........."
+sleep 4
+echo "    Please Waiting Proses Downloading Toll UdpCustom........"
+sleep 4
 echo ""
 wget -q --show-progress --load-cookies /tmp/cookies.txt "https://gitlab.com/Exe302/Tunnel/-/raw/main/udp-custom-linux-amd64" -O /root/udp/udp-custom && rm -rf /tmp/cookies.txt
 chmod +x /root/udp/udp-custom
 clear
-echo "Proses Download Script Config Default"
+sleep 4
+echo "    Proses Download Script Config Default........"
+sleep 4
+echo "    Cecking Config Default By Mardhex......."
+sleep 4
+echo "    Succes Cecking Config Default Tool..........."
+sleep 4
+echo "    Please Waiting Proses Downloading Default Config UdpCustom........"
+sleep 4
 echo ""
 wget -q --show-progress --load-cookies /tmp/cookies.txt "https://gitlab.com/Exe302/Tunnel/-/raw/main/config.json" -O /root/udp/config.json && rm -rf /tmp/cookies.txt
 chmod 644 /root/udp/config.json
