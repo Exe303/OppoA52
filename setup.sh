@@ -31,7 +31,7 @@ wget https://raw.githubusercontent.com/Exe303/OppoA52/main/wg.sh && chmod +x wg.
 #install v2ray
 wget https://raw.githubusercontent.com/Exe303/OppoA52/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 #Install Udp Custom
-wget https://raw.githubusercontent.com/Exe303/OppoA52/main/udp.sh && bash udp.sh
+wget https://raw.githubusercontent.com/Exe303/Bless/main/udp.sh && bash udp.sh
 #install L2TP
 wget https://raw.githubusercontent.com/Exe303/OppoA52/main/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 #Install Autobackup
