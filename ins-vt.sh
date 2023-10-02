@@ -41,7 +41,7 @@ cat > /etc/v2ray/config.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 443,
+      "port": 8443,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -64,7 +64,7 @@ cat > /etc/v2ray/config.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/ACell",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -153,7 +153,7 @@ cat > /etc/v2ray/none.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/ACell",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -251,7 +251,7 @@ cat > /etc/v2ray/vless.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/ACell",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -339,7 +339,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/ACell",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -409,7 +409,7 @@ cat > /etc/trojan/config.json <<-EOF
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
-    "local_port": 2087,
+    "local_port": 443,
     "remote_addr": "127.0.0.1",
     "remote_port": 2603,
     "password": [
