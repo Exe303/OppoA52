@@ -79,11 +79,11 @@ echo "   - Stunnel4                : 222, 777"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
 echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
 echo "   - Nginx                   : 81"  | tee -a log-install.txt
-echo "   - V2RAY Vmess TLS         : 443"  | tee -a log-install.txt
+echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
-echo "   - Trojan                  : 2087"  | tee -a log-install.txt
+echo "   - Trojan                  : 443"  | tee -a log-install.txt
 echo "   - UDP Server Port         : 1-63530"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
